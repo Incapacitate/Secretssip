@@ -13,7 +13,6 @@ Comment.destroy_all
 City.destroy_all
 Tag.destroy_all
 Like.destroy_all
-PrivateMessage.destroy_all
 
 10.times do |city|
 	City.create!(name: Faker::TvShows::GameOfThrones.city, zip_code: Faker::Address.zip_code)
@@ -33,10 +32,6 @@ end
 
 20.times do |gossiptag|
 	GossipsTag.create!(gossip_id: Gossip.all.sample.id, tag_id: Tag.all.sample.id)
-end
-
-10.times do |pm|
-	PrivateMessage.create!(content: Faker::TvShows::FamilyGuy.quote, sender: User.all.sample, recipient: User.all.sample)
 end
 
 20.times do |comment|
