@@ -29,9 +29,9 @@
           <%= link_to "Home", root_path, :class => "nav-item nav-link" %>
           <%= link_to "Contact", contacts_path, :class => "nav-item nav-link" %>
           <%= link_to "Team", teams_path, :class => "nav-item nav-link" %>
-          <%= link_to "Potin au hasard", gossip_path(Gossip.all.sample.id), :class => "nav-item nav-link" %>
+          <%= link_to "Secret au hasard", gossip_path(Gossip.all.sample.id), :class => "nav-item nav-link" %>
           <% if session[:user_id] != nil %>
-            <%= link_to "Ajouter un potin", new_gossip_path, :class => "nav-item nav-link" %>
+            <%= link_to "Ajouter un secret", new_gossip_path, :class => "nav-item nav-link" %>
           <% end %>
         </div>
 <!-- partie droite avec dropdown -->
