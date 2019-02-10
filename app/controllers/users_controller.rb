@@ -16,15 +16,15 @@ class UsersController < ApplicationController
     puts "*" * 60
     puts params
     puts "*" * 60
-    @user = User.new(first_name: params[:first_name],
-                     last_name: params[:last_name],
-                     description: params[:description],
-                     email: params[:email],
-                     age: params[:age],
-                     password: params[:password],
-                     city_id: City.all.sample.id)
+    @user = User.new(first_name: params.permit[:first_name],
+                    last_name: params.permit[:last_name],
+                    description: params.permit[:description],
+                    email: params.permit[:email],
+                    age: params.permit[:age],
+                    password: params.permit[:password],
+                    city_id: City.all.sample.id)
 
-    if @user.save # essaie de sauvegarder en base @gossip
+    if @user.save 
       log_in(@user)
       redirect_to root_path, :notice => "Bienvenue #{@user.first_name} !"
     else
